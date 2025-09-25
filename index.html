@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stay Hard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="app-header">
+      <div class="title-group">
+        <h1>Stay Hard</h1>
+        <button id="darkModeToggle" aria-label="Toggle dark mode"></button>
+      </div>
+      <div class="header-stats" role="status" aria-live="polite">
+        <div class="stat" id="statTodayPoints">Today: 0 pts</div>
+        <div class="stat" id="statTodayMinutes">Focus: 0 min</div>
+        <div class="stat" id="statStreak">🔥 Streak: 0 days</div>
+        <div class="stat" id="statLevel">Level 1</div>
+        <div class="progress" aria-label="Progress to next level">
+          <div class="progress-bar" id="levelProgressBar"></div>
+        </div>
+      </div>
+    </header>
+    <div class="layout">
+      <nav class="sidebar" aria-label="Projects and filters">
+        <section class="sidebar-section">
+          <div class="section-header">
+            <h2>Filters</h2>
+            <button class="icon" id="filterAll" aria-label="Show all tasks">All</button>
+          </div>
+          <ul class="filter-list" id="filterList">
+            <li><button data-filter="today">Today</button></li>
+            <li><button data-filter="overdue">Overdue</button></li>
+          </ul>
+        </section>
+        <section class="sidebar-section">
+          <div class="section-header">
+            <h2>Projects</h2>
+            <button class="icon" id="addProjectBtn" aria-label="Add project">+</button>
+          </div>
+          <ul id="projectList" class="project-list"></ul>
+        </section>
+        <section class="sidebar-section">
+          <button id="backupBtn">Backup</button>
+          <label class="file-button">
+            Restore
+            <input type="file" id="restoreInput" accept="application/json" />
+          </label>
+          <button id="settingsBtn">Settings</button>
+        </section>
+      </nav>
+      <main class="main-content" aria-label="Tasks">
+        <div class="toolbar">
+          <button id="newTaskBtn">New Task (N)</button>
+          <input id="searchInput" type="search" placeholder="Search (/)..." aria-label="Search tasks" />
+        </div>
+        <div id="taskList" class="task-list" aria-live="polite"></div>
+      </main>
+      <aside class="right-panel" id="rightPanel">
+        <section id="timerCard" class="card"></section>
+        <section id="activeDetails" class="card"></section>
+        <section id="quotesCard" class="card hidden" aria-live="assertive"></section>
+        <section id="dashboard" class="card"></section>
+      </aside>
+    </div>
+  </div>
+  <div id="modalRoot"></div>
+  <div id="toastRoot" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
